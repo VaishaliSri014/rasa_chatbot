@@ -3,9 +3,11 @@ nlu:
 - intent: greet
   examples: |
     - hey
+    - ok
     - hello
     - hi
     - hello there
+    - hey buddy
     - good morning
     - good evening
     - hey there
@@ -14,7 +16,6 @@ nlu:
     - good afternoon
 - intent: goodbye
   examples: |
-    - good afternoon
     - good bye
     - see you later
     - good night
@@ -26,6 +27,15 @@ nlu:
 - intent: affirm
   examples: |
     - yes
+    - accept
+    - Accept
+    - Yes
+    - main menu
+    - go to main menu
+    - menu
+    - choice list
+    - choice
+    - list
     - y
     - indeed
     - of course
@@ -35,10 +45,17 @@ nlu:
   examples: |
     - no
     - n
+    - No
     - never
     - I don't think so
     - don't like that
     - no way
+- intent: terms_no
+  examples: |
+    - no
+    - No
+    - decline
+    - Decline
 - intent: mood_great
   examples: |
     - perfect
@@ -81,7 +98,11 @@ nlu:
 - intent: corona_intro
   examples: |
     - what is corona?
+    - what is corona
+    - what is corona virus?
+    - what is corona virus
     - what is covid-19?
+    - what is covid-19
     - what is novel corona virus?
     - tell me about corona
     - can you tell me about corona
@@ -89,7 +110,13 @@ nlu:
 - intent: corona_spread
   examples: |
     - how does corona virus spread?
+    - how covid-19 spread?
+    - spread of corona virus?
+    - spread of corona virus
     - how does corona virus spread
+    - how does corona virus spread?
+    - how does covid-19 spread
+    - how does covid1-19 spread?
     - how does this virus spread
     - how does this virus spread?
 - intent: corona_food_spread
@@ -97,15 +124,41 @@ nlu:
     - how does food spread corona virus?
     - does consuming junk food spread corona virus?
     - how will corona spread from food?
+    - does corona spread from food?
+    - does covid-19 spread from food?
+    - does covid-19 spread from food
+    - does corona spread from food
 - intent: corona_spread_warm
   examples: |
     - how will warm weather stop corona virus?
+    - does corona virus spread in warm weather?
+    - does covid-19 spread in warn weather
     - Can warm weather actually stop corona?
     - will it stop with warm weather?
+    - Can warm weather actually stop corona?
 - intent: corona_spread_risk
   examples: |
-    - who is at higher risk of infection
-    - who is more prone to get corona virus infection
+    - risk factors
+    - risk factors of corona virus?
+    - risk factors of covid-19?
+    - who is more prone to corona virus?
+    - who has more risk?
+    - who has more risk
+    - which age people has more risk
+- intent: infants
+  examples: |
+    - infants
+    - babies
+    - baby
+- intent: under_20
+  examples: |
+    - under 20 age
+    - under 20
+    - under_20
+- intent: above_60
+  examples: |
+    - above 60 age
+    - above 60
 - intent: corona_community
   examples: |
     - what is community spread?
@@ -118,7 +171,8 @@ nlu:
     - What are the symptoms of novel covid-19 virus?
     - What are the symptoms of corona virus?
     - symptoms of corona virus?
-    - symptoms of covid19 virus?
+    - symptoms of covid-19?
+    - corona symptoms
 - intent: corona_mosq_spread
   examples: |
     - can mosquitoes spread corona virus?
@@ -133,7 +187,9 @@ nlu:
     - vaccines available for prevention of corona virus?
     - Have the vaccines been developed for corona virus?
     - is there any vaccine for corona virus?
-    - is there any vaccine for covid19 virus?
+    - is there any vaccine for covid19?
+    - vaccine for corona virus?
+    - vaccine for covid-19?
 - intent: corona_prevent
   examples: |
     - how can i prevent covid19?
@@ -161,6 +217,12 @@ nlu:
     - someone gets infected by corona i was in contact with?
     - someone gets infected by covid i was in contact with?
     - what to do if someone gets infected by covid i was in contact with?
+    - how to take care for corona infected person?
+    - precautions for corona infected person?
+    - precautions for corona virus infected person?
+    - precaution for covid infected person?
+    - how to take care for corona infected person?
+    - how to take care covid-19 positive person?
 - intent: corona_stats_check
   examples: |
     - Corona stats
@@ -247,6 +309,52 @@ nlu:
     - thanks
     - thanks a lot
     - thank you so much
+- intent: corona_symptom_check
+  examples: |
+    - check the symptoms of corona virus?
+    - check the symptoms of covid-19?
+    - corona symptoms check
+    - covid-19 symptom check
+- intent: describe_symptom
+  examples: |
+    - Cough
+    - cough
+    - Fever
+    - fever
+    - Shortness of breath or
+    - difficulty breathing
+    - difficult in breathing
+    - Muscle or body aches
+    - Sore throat
+    - New loss of taste or smell
+    - Diarrhea
+    - Headache
+    - headache
+    - New fatigue
+    - Nausea or vomiting
+- intent: below_20
+  examples: |
+    - Below 20
+- intent: above_20
+  examples: |
+    - Above 20
+- intent: above_50
+  examples: |
+    - Above 50
+- intent: breath_risk
+  examples: |
+    - Yes
+- intent: breath_no_risk
+  examples: |
+    - No
+- intent: having_asthma
+  examples: |
+    - Yes
+- intent: not_having_asthma
+  examples: |
+    - No
 - synonym: Ashish
   examples: |
-    - Vaishali
+    - Vaishali Sri
+    - Valliammai
+    - Shriram
