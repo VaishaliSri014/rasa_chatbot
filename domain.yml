@@ -27,7 +27,13 @@ intents:
     use_entities: true
 - corona_spread_warm:
     use_entities: true
-- corona_spread_risk:
+- utter_corona_spread_risk:
+    use_entities: true
+- infants:
+    use_entities: true
+- under_20:
+    use_entities: true
+- above_60:
     use_entities: true
 - corona_states_stat:
     use_entities: true
@@ -51,6 +57,28 @@ intents:
     use_entities: true
 - Thanks:
     use_entities: true
+- corona_spread_risk:
+    use_entities: true
+- terms_no:
+    use_entities: true
+- corona_symptom_check:
+    use_entities: true
+- breath_risk:
+    use_entities: true
+- describe_symptom:
+    use_entities: true
+- breath_no_risk:
+    use_entities: true
+- above_50:
+    use_entities: true
+- above_20:
+    use_entities: true
+- below_20:
+    use_entities: true
+- having_asthma:
+    use_entities: true
+- not_having_asthma:
+    use_entities: true
 entities:
 - name
 - state
@@ -67,26 +95,38 @@ slots:
     influence_conversation: false
 responses:
   utter_greet:
+  - buttons:
+    - payload: /affirm
+      title: Accept
+    - payload: /terms_no
+      title: Decline
+    text: |-
+      Hi! I'm an automatic chatbot to give you more information about covid-19!
+      please note that this service is for informational purposes and is not a qualified medical opinion, in case of health emergency,call your local emergency number immediately
+      Do you understand the above terms and conditions?
+  utter_affirm:
   - text: |-
-      Hey! Welcome To COVID-19 Stats Bot.
+      Start a chat to know more about COVID-19.
       You Can Ask Me about Following Info:
-      1.To Check Corona Statistics Of Your State Where You Live , Type 'Corona Tracker' or 'corona stats'
+      1.To Check Corona Statistics Of Your State Where You Live , Type 'Corona Tracker' or 'corona stats'.\n\n
       2.What Is COVID-19?
       3.How does Corona Spread?
       4.How does food spread corona virus?
       5.Can warm weather actually stop corona?
       6.Who is more prone to get corona virus infection?
       7.About Community Spread from COVID-19
-      8.Preventive Steps to be taken for COVID-19
-      9.COVID-19 Symptoms Check
+      8.Preventive Steps to be taken for COVID-19?
+      9.COVID-19 Symptoms
       10.About Vaccine Availability For COVID-19
       11.How To Handle Someone who gets in contact with infected person from COVID-19.
+      12. COVID-19 Symptoms check
+  utter_more_info:
   - buttons:
-    - payload: /mood_great
-      title: great
-    - payload: /mood_sad
-      title: super sad
-    text: Hey! How are you?
+    - payload: /affirm
+      title: Yes
+    - payload: /deny
+      title: No
+    text: Do you want to know more information about covid-19?
   utter_cheer_up:
   - image: https://i.imgur.com/nGF1K8f.jpg
     text: 'Here is something to cheer you up:'
@@ -95,25 +135,46 @@ responses:
   utter_happy:
   - text: Great, carry on!
   utter_goodbye:
-  - text: |-
-      GoodBye! Hope To See You Soon !
-      Just Type 'hey' or 'hi' anytime to redirect to the Intro Section of The Bot :))
+  - text: GoodBye! Hope To See You Soon !
+  - text: Just Type 'hey' or 'hi' anytime to redirect to the Intro Section of The Bot :))
   utter_iamabot:
   - text: |
-      I am a COVID-19 Stats bot, Developed By Vaishali Sri.
+      I am a COVID-19 Stats bot, Developed By Vaishali Sri,Valliammai,Shriram.
   utter_corona_intro:
-  - text: The COVID-19 pandemic, also known as the coronavirus pandemic, is an ongoing pandemic of coronavirus disease 2019 (COVID-19) caused by severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2).[1] The disease was first identified in December 2019 in Wuhan, China. The World Health Organization declared the outbreak a Public Health Emergency of International Concern on 30 January 2020 and a pandemic on 11 March 2020. As of 24 September 2020, more than 31.9 million cases have been reported in 188 countries and territories, resulting in more than 978,000 deaths; more than 22 million people have recovered.
+  - text: The COVID-19 pandemic, also known as the coronavirus pandemic, is an ongoing pandemic of coronavirus disease 2019 (COVID-19) caused by severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2). The disease was first identified in December 2019 in Wuhan, China. The World Health Organization declared the outbreak a Public Health Emergency of International Concern on 30 January 2020 and a pandemic on 11 March 2020. As of 24 September 2020, more than 31.9 million cases have been reported in 188 countries and territories, resulting in more than 978,000 deaths; more than 22 million people have recovered.
   utter_corona_spread:
   - text: |-
-      This virus was first detected in Wuhan City, Hubei Province, China. The first infections were linked to a live animal market, but the virus is now spreading from person-to-person. It’s important to note that person-to-person spread can happen on a continuum. Some viruses are highly contagious (like measles), while other viruses are less so. The virus that causes COVID-19 is spreading from person-to-person. Someone who is actively sick with COVID-19 can spread the illness to others. That is why we recommend that these patients be isolated either in the hospital or at home (depending on how sick they are) until they are better and no longer pose a risk of infecting others.
+      This virus was first detected in Wuhan City, Hubei Province, China.
+      The first infections were linked to a live animal market, but the virus is now spreading from person-to-person.
+      It’s important to note that person-to-person spread can happen on a continuum. Some viruses are highly contagious (like measles), while other viruses are less so.
+      The virus that causes COVID-19 is spreading from person-to-person.
+      Someone who is actively sick with COVID-19 can spread the illness to others.
+      That is why we recommend that these patients be isolated either in the hospital or at home (depending on how sick they are) until they are better and no longer pose a risk of infecting others.
       How long someone is actively sick can vary so the decision on when to release someone from isolation is made on a case-by-case basis in consultation with doctors, infection prevention and control experts, and public health officials and involves considering specifics of each situation including disease severity, illness signs and symptoms, and results of laboratory testing for that patient.
       The virus that causes COVID-19 seems to be spreading easily and sustainably in the community (“community spread”) in some affected geographic areas. Community spread means people have been infected with the virus in an area, including some who are not sure how or where they became infected.
   utter_corona_food_spread:
-  - text: It is highly unlikely that people can contract COVID-19 from food or food packaging. COVID-19 is a respiratory illness and the primary transmission route is through person-to- person contact and through direct contact with respiratory droplets generated when an infected person coughs or sneezes.
+  - text: |-
+      It is highly unlikely that people can contract COVID-19 from food or food packaging.
+      COVID-19 is a respiratory illness and the primary transmission route is through person-to- person contact and through direct contact with respiratory droplets generated when an infected person coughs or sneezes.
   utter_corona_spread_warm:
   - text: With the start of summer coming soon, many are hopeful that the warmer weather will slow the spread of SARS-CoV-2, the novel coronavirus that causes COVID-19. There have been hints from lab experiments that increased temperature and humidity may reduce the viability of SARS-CoV-2. Meanwhile, other coronaviruses that cause less severe diseases, such as the common cold, do spread more slowly among people during the summer.
   utter_corona_spread_risk:
-  - text: COVID-19 is often more severe in people who are older than 60 years or who have health conditions like lung or heart disease, diabetes or conditions that affect their immune system.​ If you’re at high risk, know what to do, and take the right actions now to protect yourself.If you’re not at high risk, do your part to prevent the spread of coronavirus to those who are.There is increasing evidence that people with existing chronic conditions or compromised immune systems due to disability are at higher risk of death due to COVID-19.
+  - buttons:
+    - payload: /infants
+      title: infants or babies
+    - payload: under_20
+      title: under 20 age
+    - payload: above_60
+      title: above 60 age
+    text: It may depends on our body immune system and age factors too.
+  utter_infants:
+  - text: |-
+      Babies under age 1 might be at higher risk of severe illness with COVID-19 than older children.
+      This is likely due to their immature immune systems and smaller airways, which make them more likely to develop breathing issues with respiratory virus infections.
+  utter_under_20:
+  - text: While all children are capable of getting the virus that causes COVID-19, they don't become sick as often as adults. Most children have mild symptoms or no symptoms. According to the American Academy of Pediatrics and the Children's Hospital Association, in the U.S. children represent about 13% of all COVID-19 cases. Research suggests that children younger than ages 10 to 14 are less likely to become infected with the virus that causes COVID-19 compared to people age 20 and older.
+  utter_above_60:
+  - text: COVID-19 is often more severe in people who are older than 60 years or who have health conditions like lung or heart disease, diabetes or conditions that affect their immune system.​ If you’re at high risk, know what to do, and take the right actions now to protect yourself.If you’re not at high risk, do your part to prevent the spread of coronavirus to those who are.There is increasing evidence that people with existing chronic conditions or compromised immune systems due to disability are at higher risk of death due to COVID-19."
   utter_country_entry:
   - text: Can You Please Enter Your Current State From India?
   utter_corona_stats_check:
@@ -121,13 +182,23 @@ responses:
       Covid-19 Tracker [India] :
       Please Enter the State name you wish to see the Covid-19 Statistics : 
   utter_corona_community:
-  - text: Community spread means people have been infected with the virus in an area, including some who are not sure how or where they became infected. Each health department determines community spread differently based on local conditions. For information on community spread in your area, please visit your health department’s website.​
+  - text: Community spread means people have been infected with the virus in an area, including some who are not sure how or where they became infected. Each health department determines community spread differently based on local conditions. For information on community spread in your area.
   utter_corona_mosq_spread:
   - text: At this time, CDC has no data to suggest that this new coronavirus or other similar coronaviruses are spread by mosquitoes or ticks. The main way that COVID-19 spreads is from person to person. See How Coronavirus Spreads for more information.
   utter_corona_prevent:
   - text: |-
-      The best way to prevent illness is to avoid being exposed to the virus. CDC recommends everyday preventive actions to help prevent the spread of respiratory diseases.CDC recommends washing your hands often with soap and water for at least 20 seconds especially after you have been in a public place, or after blowing your nose, coughing, or sneezing. If soap and water are not available, CDC recommends using an alcohol-based hand sanitizer that contains at least 60 percent alcohol.
-      Wear masks in public settings when around people not living in your household and particularly where other social distancing measures are difficult to maintain, such as grocery stores, pharmacies, and gas stations. Masks may slow the spread of the virus and help people who may have the virus and do not know it from transmitting it to others.COVID-19 can be spread by people who do not have symptoms and do not know that they are infected. That’s why it’s important for everyone to practice social distancing (staying at least 6 feet away from other people) and wear masks in public settings. Masks provide an extra layer to help prevent the respiratory droplets from traveling in the air and onto other people.The masks recommended are not surgical masks or N-95 respirators. Those are critical supplies that must continue to be reserved for healthcare workers and other medical first responders, as recommended by current CDC guidance.
+      The best way to prevent illness is to avoid being exposed to the virus.
+      CDC recommends everyday preventive actions to help prevent the spread of respiratory diseases.
+      CDC recommends washing your hands often with soap and water for at least 20 seconds especially after you have been in a public place, or after blowing your nose, coughing, or sneezing.
+      If soap and water are not available, CDC recommends using an alcohol-based hand sanitizer that contains at least 60 percent alcohol.
+      Wear masks in public settings when around people not living in your household and particularly where other social distancing measures are difficult to maintain, such as
+      1. grocery stores
+      2. pharmacies
+      3. gas stations
+      Masks may slow the spread of the virus and help people who may have the virus and do not know it from transmitting it to others.
+      COVID-19 can be spread by people who do not have symptoms and do not know that they are infected.
+      That’s why it’s important for everyone to practice social distancing (staying at least 6 feet away from other people) and wear masks in public settings.
+      Masks provide an extra layer to help prevent the respiratory droplets from traveling in the air and onto other people.The masks recommended are not surgical masks or N-95 respirators. Those are critical supplies that must continue to be reserved for healthcare workers and other medical first responders, as recommended by current CDC guidance.
   utter_corona_symptoms:
   - text: |-
       COVID-19 symptoms include:
@@ -147,7 +218,7 @@ responses:
   - text: |-
       Human clinical trials for Covid-19 vaccine initiated in India: ICMR. Human clinical trials for a vaccine for Covid-19 have been initiated with approximately 1,000 volunteers participating in the exercise for each of the two indigenously developed vaccine candidates
       While some western, traditional or home remedies may provide comfort and alleviate symptoms of mild COVID-19, there are no medicines that have been shown to prevent or cure the disease. WHO does not recommend self-medication with any medicines, including antibiotics, as a prevention or cure for COVID-19. However, there are several ongoing clinical trials of both western and traditional medicines. WHO is coordinating efforts to develop vaccines and medicines to prevent and treat COVID-19 and will continue to provide updated information
-      At this time there is no vaccine to prevent coronavirus disease 2019 (COVID-19). The FDA is working with vaccine developers and other researchers and manufacturers to help expedite the development and availability of medical products such as vaccines, antibodies, and drugs to prevent COVID-19
+      At this time they use covaxin to prevent coronavirus disease 2019 (COVID-19). The FDA is working with vaccine developers and other researchers and manufacturers to help expedite the development and availability of medical products such as vaccines, antibodies, and drugs to prevent COVID-19
   utter_corona_infected person:
   - text: |-
       Stay home for 14 days after your last contact with a person who has COVID-19.
@@ -157,6 +228,55 @@ responses:
   - text: |-
       Your Welcome . Glad I could be of some help!
       Just type 'hey' or 'hi' again to redirect to the main phase of bot ! :))
+  utter_terms_no:
+  - buttons:
+    - payload: /affirm
+      title: Accept
+    - payload: /terms_no
+      title: Decline
+    text: |-
+      I'm sorry but we cannot go further without accepting the terms of service.
+      Do you accept the terms and condition?
+  utter_corona_symptom_check:
+  - text: Please describe your symptoms
+  utter_symptom_ques:
+  - buttons:
+    - payload: /below_20
+      title: Below 20
+    - payload: /above_20
+      title: Above 20
+    - payload: above_50
+      title: Above 50
+    text: |-
+      Okay! let me ask you a couple of questions
+      how old are you?
+  utter_breath_trouble:
+  - buttons:
+    - payload: /breath_risk
+      title: Yes
+    - payload: /breath_no_iisk
+      title: No
+    text: Do you have trouble in breathing?
+  utter_breath_risk:
+  - text: risk, kindly visit nearest health care and check corona test.
+  utter_breath_no_risk:
+  - text: no risk.
+  utter_asthma_ques:
+  - buttons:
+    - payload: /having_asthma
+      title: Yes
+    - payload: /not_having_asthma
+      title: No
+    text: Do you having asthma?
+  utter_having_asthma:
+  - text: |-
+      Do these following to prevent from corona:
+      1.having a good supply of medication
+      2.knowing how to use an inhaler correctly
+      3.cleaning and disinfecting frequently touched surfaces, such as door handles and countertops
+      4.avoiding any cleaning products that could trigger asthma
+  utter_not_having_asthma:
+  - text: No risk, if you have any trouble kindly vist nearest health care.
 actions:
 - actions_corona_state_stat
 - actions_name_show
