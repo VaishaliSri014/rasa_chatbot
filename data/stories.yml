@@ -6,6 +6,13 @@ stories:
   - action: utter_greet
   - intent: mood_great
   - action: utter_happy
+- story: terms decline
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: terms_no
+  - action: utter_terms_no
+
 - story: sad path 1
   steps:
   - intent: greet
@@ -28,70 +35,355 @@ stories:
   steps:
   - intent: corona_intro
   - action: utter_corona_intro
+  - action: utter_more_info
 - story: corona spread
   steps:
   - intent: corona_spread
   - action: utter_corona_spread
+  - action: utter_more_info
 - story: corona food spread
   steps:
   - intent: corona_food_spread
   - action: utter_corona_food_spread
+  - action: utter_more_info
 - story: corona warm weather
   steps:
   - intent: corona_spread_warm
   - action: utter_corona_spread_warm
-- story: corona risk
+  - action: utter_more_info
+- story: corona spread risk
   steps:
   - intent: corona_spread_risk
   - action: utter_corona_spread_risk
+  - action: utter_more_info
+- story: corona risk
+  steps:
+  - intent: infants
+  - action: utter_infants
+  - action: utter_more_info
+  - intent: under_20
+  - action: utter_under_20
+  - action: utter_more_info
+  - intent: above_60
+  - action: utter_above_60
+  - action: utter_more_info
 - story: corona tracker path
   steps:
-  - intent: greet
-  - action: utter_greet
   - intent: corona_stats_check
   - action: utter_corona_stats_check
   - intent: corona_states_stat
   - action: actions_corona_state_stat
-- story: corona tracker 2 path
-  steps:
-  - intent: corona_stats_check
-  - action: utter_corona_stats_check
-  - intent: corona_states_stat
-  - action: actions_corona_state_stat
+  - action: utter_more_info
+
 - story: corona community spread path
   steps:
   - intent: corona_community
   - action: utter_corona_community
+  - action: utter_more_info
 - story: corona mosquito path
   steps:
   - intent: corona_mosq_spread
   - action: utter_corona_mosq_spread
+  - action: utter_more_info
 - story: corona prevent path
   steps:
   - intent: corona_prevent
   - action: utter_corona_prevent
+  - action: utter_more_info
 - story: corona symptoms path
   steps:
   - intent: corona_symptoms
   - action: utter_corona_symptoms
+  - action: utter_more_info
 - story: corona vaccine path
   steps:
   - intent: corona_vaccine
   - action: utter_corona_vaccine
+  - action: utter_more_info
 - story: corona infected path
   steps:
   - intent: corona_infected person
   - action: utter_corona_infected person
-- story: Story from Conversation ID dac3d0048c4d42e1b8e52073fa9ce428
+  - action: utter_more_info
+- story: condition accept deny
+  steps:
+  - intent: affirm
+  - action: utter_affirm
+  - intent: deny
+  - action: utter_Thanks
+
+- story : corona symptoms check
+  steps:
+  - intent: corona_symptom_check
+  - action: utter_corona_symptom_check
+  - intent: describe_symptom
+  - action: utter_symptom_ques
+
+- story: corona age check
+  steps:
+  - intent: below_20
+  - action: utter_breath_trouble
+  - intent: above_20
+  - action: utter_breath_trouble
+  - intent: above_50
+  - action: utter_breath_trouble
+- story: breath trouble
+  steps:
+  - intent: breath_risk
+  - action: utter_breath_risk
+  - action: utter_asthma_ques
+  - intent: breath_no_risk
+  - action: utter_breath_no_risk
+  - action: utter_asthma_ques
+
+- story: asthma
+  steps:
+  - intent: having_asthma
+  - action: utter_having_asthma
+  - action: utter_more_info
+  - intent: not_having_asthma
+  - action: utter_not_having_asthma
+  - action: utter_more_info
+- story: Story from Conversation ID f8e9ed52c2ea45f5ae528aadeac9dee6
   steps:
   - intent: greet
   - action: utter_greet
-  - intent: corona_intro
+  - intent: corona_stats_check
   - action: utter_corona_stats_check
-  - action: utter_corona_stats_check
+  - slot_was_set:
+    - state: India
+  - intent: corona_states_stat
+    entities:
+    - state: India
+  - action: actions_corona_state_stat
+  - slot_was_set:
+    - state: Andhra Pradesh
+  - intent: corona_states_stat
+    entities:
+    - state: Andhra Pradesh
+  - action: actions_corona_state_stat
+  - slot_was_set:
+    - state: Arunachal Pradesh
+  - intent: corona_states_stat
+    entities:
+    - state: Arunachal Pradesh
+  - action: actions_corona_state_stat
+  - slot_was_set:
+    - state: Assam
+  - intent: corona_states_stat
+    entities:
+    - state: Assam
+  - action: actions_corona_state_stat
+  - slot_was_set:
+    - state: Chhattisgarh
+  - intent: corona_states_stat
+    entities:
+    - state: Chhattisgarh
+  - action: actions_corona_state_stat
+  - slot_was_set:
+    - state: Goa
+  - intent: corona_states_stat
+    entities:
+    - state: Goa
+  - action: actions_corona_state_stat
+  - intent: corona_states_stat
+    entities:
+    - state: Gujarat
+  - slot_was_set:
+    - state: Gujarat
+  - action: actions_corona_state_stat
+  - slot_was_set:
+    - state: Haryana
+  - intent: corona_states_stat
+    entities:
+    - state: Haryana
+  - action: actions_corona_state_stat
+  - slot_was_set:
+    - state: Himachal Pradesh
+  - intent: corona_states_stat
+    entities:
+    - state: Himachal Pradesh
+  - action: actions_corona_state_stat
+  - slot_was_set:
+    - state: Haryana
+  - intent: corona_states_stat
+    entities:
+    - state: Haryana
+  - action: actions_corona_state_stat
+  - slot_was_set:
+    - state: Jharkhand
+  - intent: corona_states_stat
+    entities:
+    - state: Jharkhand
+  - action: actions_corona_state_stat
+  - slot_was_set:
+    - state: Karnataka
+  - intent: corona_states_stat
+    entities:
+    - state: Karnataka
+  - action: actions_corona_state_stat
+  - slot_was_set:
+    - state: Kerala
+  - intent: corona_states_stat
+    entities:
+    - state: Kerala
+  - action: actions_corona_state_stat
+  - slot_was_set:
+    - state: Kerala
+  - intent: corona_states_stat
+    entities:
+    - state: Kerala
+  - action: actions_corona_state_stat
+  - slot_was_set:
+    - state: Madhya Pradesh
+  - intent: corona_states_stat
+    entities:
+    - state: Madhya Pradesh
+  - action: actions_corona_state_stat
+  - slot_was_set:
+    - state: Maharastra
+  - intent: corona_states_stat
+    entities:
+    - state: Maharastra
+  - action: actions_corona_state_stat
+  - slot_was_set:
+    - state: Maharashtra
+  - intent: corona_states_stat
+    entities:
+    - state: Maharashtra
+  - action: actions_corona_state_stat
+  - slot_was_set:
+    - state: Manipur
+  - intent: corona_states_stat
+    entities:
+    - state: Manipur
+  - action: actions_corona_state_stat
+  - slot_was_set:
+    - state: Meghalaya
+  - intent: corona_states_stat
+    entities:
+    - state: Meghalaya
+  - action: actions_corona_state_stat
+  - slot_was_set:
+    - state: Mizoram
+  - intent: corona_states_stat
+    entities:
+    - state: Mizoram
+  - action: actions_corona_state_stat
+  - slot_was_set:
+    - state: Nagaland
+  - intent: corona_states_stat
+    entities:
+    - state: Nagaland
+  - action: actions_corona_state_stat
+  - slot_was_set:
+    - state: Odisha
+  - intent: corona_states_stat
+    entities:
+    - state: Odisha
+  - action: actions_corona_state_stat
+  - slot_was_set:
+    - state: Odisha
+  - intent: corona_states_stat
+    entities:
+    - state: Odisha
+  - action: actions_corona_state_stat
+  - slot_was_set:
+    - state: Punjab
+  - intent: corona_states_stat
+    entities:
+    - state: Punjab
+  - action: actions_corona_state_stat
+  - slot_was_set:
+    - state: Rajasthan
+  - intent: corona_states_stat
+    entities:
+    - state: Rajasthan
+  - action: actions_corona_state_stat
+  - slot_was_set:
+    - state: Rajasthan
+  - intent: corona_states_stat
+    entities:
+    - state: Rajasthan
+  - action: actions_corona_state_stat
+  - slot_was_set:
+    - state: Sikkim
+  - intent: corona_states_stat
+    entities:
+    - state: Sikkim
+  - action: actions_corona_state_stat
   - slot_was_set:
     - state: Tamil Nadu
   - intent: corona_states_stat
     entities:
     - state: Tamil Nadu
   - action: actions_corona_state_stat
+  - slot_was_set:
+    - state: Tamil Nadu
+  - intent: corona_states_stat
+    entities:
+    - state: Tamil Nadu
+  - action: actions_corona_state_stat
+  - slot_was_set:
+    - state: Tamil Nadu
+  - intent: corona_states_stat
+    entities:
+    - state: Tamil Nadu
+  - action: actions_corona_state_stat
+  - slot_was_set:
+    - state: Telangana
+  - intent: corona_states_stat
+    entities:
+    - state: Telangana
+  - action: actions_corona_state_stat
+  - slot_was_set:
+    - state: Tripura
+  - intent: corona_states_stat
+    entities:
+    - state: Tripura
+  - action: actions_corona_state_stat
+  - slot_was_set:
+    - state: Uttar Pradesh
+  - intent: corona_states_stat
+    entities:
+    - state: Uttar Pradesh
+  - action: actions_corona_state_stat
+  - slot_was_set:
+    - state: Uttarakhand
+  - intent: corona_states_stat
+    entities:
+    - state: Uttarakhand
+  - action: actions_corona_state_stat
+  - slot_was_set:
+    - state: West Bengal
+  - intent: corona_states_stat
+    entities:
+    - state: West Bengal
+  - action: actions_corona_state_stat
+  - slot_was_set:
+    - state: Delhi
+  - intent: corona_states_stat
+    entities:
+    - state: Delhi
+  - action: actions_corona_state_stat
+  - slot_was_set:
+    - state: Delhi
+  - intent: corona_states_stat
+    entities:
+    - state: Delhi
+  - action: actions_corona_state_stat
+- story: Story from Conversation ID f166614ef6f7414bba812834eb8aab71
+  steps:
+  - action: utter_corona_vaccine
+  - intent: corona_vaccine
+  - intent: corona_vaccine
+  - action: utter_corona_vaccine
+  - action: utter_more_info
+- story: Story from Conversation ID ef46af3bfc6d4088b61e106e82d762fa
+  steps:
+
+  - intent: corona_spread_risk
+  - action: utter_corona_spread_risk
+  - intent: infants
+  - action: utter_infants
+  - action: utter_more_info
